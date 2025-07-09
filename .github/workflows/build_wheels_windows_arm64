@@ -1,14 +1,6 @@
 name: Windows ARM64
 
 on:
-  push:
-    branches:
-      - 4.x
-      - 5.x
-    paths-ignore:
-      - '.github/workflows/build_wheels_linux*'
-      - '.github/workflows/build_wheels_macos*'
-      - '.github/workflows/build_wheels_windows*'
   pull_request:
     branches:
       - 4.x
