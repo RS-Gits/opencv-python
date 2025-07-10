@@ -26,7 +26,7 @@ def main():
     # see https://numpy.org/doc/stable/release/2.3.0-notes.html#numpy-2-3-0-release-notes
     install_requires = [
         'numpy<2.0; python_version<"3.9"',
-        'numpy(>=2, <2.3.0); python_version>="3.9"',
+        'numpy>=2.3.1; python_version>="3.9"',
     ]
 
     python_version = cmaker.CMaker.get_python_version()
