@@ -67,7 +67,7 @@ jobs:
         python -m pip install --upgrade setuptools
         python -m pip install cmake==4.0.3
         python -m pip install toml && python -c "import toml; c = toml.load('pyproject.toml'); print('\n'.join(c['build-system']['requires']))" >> requirements.txt | python -m pip install -r requirements.txt
-        set "CI_BUILD=1" && python setup.py bdist_wheel --py-limited-api=cp37 --dist-dir=%cd%\wheelhouse -v
+        set "CI_BUILD=1" && python setup.py bdist_wheel --py-limited-api=cp37 --dist-dir=%cd%\wheelhouse -vvv
       shell: cmd
     - name: Saving all wheels
       uses: actions/upload-artifact@v4
