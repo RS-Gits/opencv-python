@@ -192,7 +192,7 @@ def main():
         ]
         + (
             # CMake flags for windows/arm64 build
-            ["-DCMAKE_GENERATOR_PLATFORM=ARM64",
+            [
              # Emulated cmake requires following flags to correctly detect
              # target architecture for windows/arm64 build
              "-DOPENCV_WORKAROUND_CMAKE_20989=ON",
