@@ -262,7 +262,7 @@ def main():
     RearrangeCMakeOutput(
         rearrange_cmake_output_data, files_outside_package_dir, package_data.keys()
     )
-
+    cmake_args.append("-D_USE_MATH_DEFINES")
     setup(
         name=package_name,
         version=package_version,
