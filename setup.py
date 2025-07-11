@@ -189,6 +189,15 @@ def main():
             "-DBUILD_DOCS=OFF",
             "-DPYTHON3_LIMITED_API=ON",
             "-DBUILD_OPENEXR=ON",
+            "-DWITH_ITT=OFF",
+            "-DWITH_OPENCL=OFF",
+            "-DWITH_OPENCLAMDBLAS=OFF",
+            "-DWITH_OPENCLAMDFFT=OFF",
+            "-DWITH_OPENCL_D3D11_NV=OFF",
+            "-DWITH_DIRECTML=OFF",
+            "-DWITH_DIRECTX=OFF",
+            "-DWITH_ADE=OFF",
+            "-DWITH_CAROTENE=OFF"
         ]
         + (
             # CMake flags for windows/arm64 build
@@ -262,7 +271,6 @@ def main():
     RearrangeCMakeOutput(
         rearrange_cmake_output_data, files_outside_package_dir, package_data.keys()
     )
-    cmake_args.append("-D_USE_MATH_DEFINES")
     setup(
         name=package_name,
         version=package_version,
