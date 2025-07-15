@@ -157,7 +157,7 @@ def main():
     files_outside_package_dir = {"cv2": ["LICENSE.txt", "LICENSE-3RD-PARTY.txt"]}
 
     ci_cmake_generator = (
-        ["-G", "Ninja"]
+        ["-G", "Visual Studio 17 2022"]
         if os.name == "nt"
         else ["-G", "Unix Makefiles"]
     )
@@ -183,25 +183,16 @@ def main():
             # See opencv/CMakeLists.txt for options and defaults
             "-DBUILD_opencv_apps=OFF",
             "-DBUILD_opencv_freetype=OFF",
-            "-DBUILD_SHARED_LIBS=ON",
+            "-DBUILD_SHARED_LIBS=OFF",
             "-DBUILD_TESTS=OFF",
             "-DBUILD_PERF_TESTS=OFF",
             "-DBUILD_DOCS=OFF",
             "-DPYTHON3_LIMITED_API=ON",
             "-DBUILD_OPENEXR=ON",
-            "-DWITH_ITT=OFF",
-            "-DWITH_OPENCL=OFF",
-            "-DWITH_OPENCLAMDBLAS=OFF",
-            "-DWITH_OPENCLAMDFFT=OFF",
-            "-DWITH_OPENCL_D3D11_NV=OFF",
-            "-DWITH_DIRECTML=OFF",
-            "-DWITH_DIRECTX=OFF",
-            "-DWITH_ADE=OFF",
-            "-DWITH_CAROTENE=OFF"
         ]
         + (
             # CMake flags for windows/arm64 build
-            [
+            ["-DCMAKE_GENERATOR_PLATFORM=ARM64",
              # Emulated cmake requires following flags to correctly detect
              # target architecture for windows/arm64 build
              "-DOPENCV_WORKAROUND_CMAKE_20989=ON",
@@ -271,6 +262,7 @@ def main():
     RearrangeCMakeOutput(
         rearrange_cmake_output_data, files_outside_package_dir, package_data.keys()
     )
+
     setup(
         name=package_name,
         version=package_version,
