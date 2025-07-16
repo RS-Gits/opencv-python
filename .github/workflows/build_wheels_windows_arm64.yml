@@ -55,7 +55,7 @@ jobs:
     - name: Apply ARM64 DNN and CPU-detect patch to OpenCV submodule
       run: |
         git apply "${{ github.workspace }}/fix-arm64-dnn.patch" --directory=opencv
-        git apply "${{ github.workspace }}/fix-cpu-detect.patch" --directory=opencv
+        
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
